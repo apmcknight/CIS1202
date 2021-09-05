@@ -13,38 +13,39 @@ using namespace std;
 
 int allConsolePrices()
 {  
-    cout << endl;
-    //cout << left << "Console";
-    //cout << right << "                              Price"; // 30 SPACES
-    cout << endl;
+    // X 0. DECLARE VARIABLES AND ARRAYS
+    // X 1. INPUT THE DATA
+    // X 2. THAT INPUT DATA NEEDS TO BE PUT INTO AN STRING ARRAY FOR THE NAMES
+    // X 3. THE INPUT DATA NEEDS TO BE CONVERTED FROM A STRING TO AN INT 
+    // X 4. THE CONVERTED DATA TO INT NEEDS TO BE PUT INTO ANOTHER ARRAY OF INTS
 
-    int NUMBER_OF_CONSOLES = 0;
-    int testPrice;
-    string consoles;
-    string consoleNames[NUMBER_OF_CONSOLES];
-    int consolePricing[NUMBER_OF_CONSOLES];
-    int consolePricesAsInt;
+    const int MAX_CONSOLES = 22;
+    string consoles[MAX_CONSOLES];
+    int console_prices[MAX_CONSOLES];
+    int counter;
+    string mapped_data_string;
 
-    ifstream consolePrices("./02pricesLF.txt");
+
+    ifstream inputFile;
+    inputFile.open("./02pricesLF.txt");
+
 
     
-    while ( getline(consolePrices, consoles) )
+    for(int i=0; i<MAX_CONSOLES; i++)
     {
-        ++NUMBER_OF_CONSOLES;    
-        string consoleNames = consoles; 
-        string consolePricing = consoles;
-       
-        std::istringstream(consolePricing) >> consolePricesAsInt;
+        //inputFile >> consoles[i];
+        getline(inputFile, consoles[i]);
+        std::istringstream(consoles[i]) >> console_prices[i];
 
-        cout << consoleNames << std::endl; 
-
-        //cout << consolePricesAsInt << std::endl;
-         
-    }   
-
-
-    // outputs the number of consoles / lines in document
-    cout << "Amount: " << NUMBER_OF_CONSOLES;
+    }
+    std::cout << "\n\nConsoles" << "                             " << "Price\n" << std::endl;
+    std::cout << consoles[0] << "         $" << consoles[1] << std::endl;
+    std::cout << consoles[2] << "                          $" << consoles[3] << std::endl;
+    std::cout << consoles[4] << "                    $" << consoles[5] << std::endl;
+    std::cout << consoles[6] << "                    $" << consoles[7] << std::endl;
+    std::cout << consoles[8] << "                            $" << consoles[9] << std::endl;
+    std::cout << consoles[10] << "                    $" << consoles[11] << std::endl;
+   
 
     return -1;
 }
@@ -121,7 +122,6 @@ int menu()
 
 
 int main(){
-    //menu();
-    allConsolePrices();
+    menu();
     return 0;
 }
