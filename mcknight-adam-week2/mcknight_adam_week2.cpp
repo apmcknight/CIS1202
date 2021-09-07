@@ -13,11 +13,7 @@ using namespace std;
 
 int allConsolePrices()
 {  
-    // X 0. DECLARE VARIABLES AND ARRAYS
-    // X 1. INPUT THE DATA
-    // X 2. THAT INPUT DATA NEEDS TO BE PUT INTO AN STRING ARRAY FOR THE NAMES
-    // X 3. THE INPUT DATA NEEDS TO BE CONVERTED FROM A STRING TO AN INT 
-    // X 4. THE CONVERTED DATA TO INT NEEDS TO BE PUT INTO ANOTHER ARRAY OF INTS
+
 
     const int MAX_CONSOLES = 22;
     string consoles[MAX_CONSOLES];
@@ -33,7 +29,6 @@ int allConsolePrices()
     
     for(int i=0; i<MAX_CONSOLES; i++)
     {
-        //inputFile >> consoles[i];
         getline(inputFile, consoles[i]);
         std::istringstream(consoles[i]) >> console_prices[i];
 
