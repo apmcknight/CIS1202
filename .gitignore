@@ -1,3 +1,7 @@
+# MISC
+.vscode
+.DS_STORE
+
 # Prerequisites
 *.d
 

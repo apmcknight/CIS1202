@@ -11,7 +11,7 @@
 
 void menu();
 float input_rent_amounts();
-float display_rent_amounts();
+void display_rent_amounts();
 
 int main(){
     menu();
@@ -36,7 +36,33 @@ void menu()
         std::cout << std::endl << "Please make a selection between 1 and " << MENU_SIZE << ": "<<std::endl;
         std::cin >> menu_input;
 
-        if(menu_input == 1)
+        //float input_rent_pointer = input_rent_amounts();
+
+        switch (menu_input)
+        {
+            case 1:
+                std::cout<< "Hello";
+                
+                break;
+
+            case 2:
+                //display_rent_amounts();
+                break; 
+
+            case 3:
+                break;
+
+            case 4:
+                break;
+
+            case 5:
+                exit(0);
+            
+            default:
+                break;
+        }
+
+        /* if(menu_input == 1)
         {
             input_rent_amounts();
         }
@@ -44,21 +70,21 @@ void menu()
         if(menu_input == 2)
         {
             display_rent_amounts();
-        }
+        } */
 
     } 
 
    
 }
 
-float* input_rent_amounts(float[])
+float* input_rent_amounts(float[], int)
 {
-    int MAX_RENT_AMOUNT = 5;
-    float rent_amount_array[MAX_RENT_AMOUNT];
+
+    static float rent_amount_array[5];
 
     std::cout<<std::endl<<"-- INPUT RENT AMOUNTS:"<<std::endl;
 
-    for(int i=0; i<MAX_RENT_AMOUNT; i++)
+    for(int i=0; i<5; i++)
     {
         std::cout<<"Please enter the Amount of Rent for Unit " << i+1 << ": $ ";
         
@@ -73,9 +99,10 @@ float* input_rent_amounts(float[])
 // STOPPING: HAVING ISSUE PASSING THE rent_amount_array INTO THE OTHER FUNCTIONS
 // NOT SURE WHAT THE ISSUE IS? -- NEED TO USE POINTERS. 
 
-float display_rent_amounts(float*, int)
+void display_rent_amounts()
 {
-    float * rent_amount_pointer = input_rent_amounts();
+    //float rent_amount_pointer = input_rent_amounts();
 
+    std::cout<<"hello"<<std::endl;
 
 }
