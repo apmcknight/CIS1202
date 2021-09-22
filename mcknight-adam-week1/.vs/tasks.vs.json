@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "task-mcknight_adam_week1",
+      "appliesTo": "mcknight_adam_week1.cpp",
+      "type": "launch"
+    }
+  ]
+}
