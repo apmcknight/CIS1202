@@ -13,10 +13,12 @@
 
 const int SIZE = 18;
 const int INCORRECT_SIZE = 8;
+const int INCORRECT_SIZE_2 = 10;
+
 
 char correct_vin[SIZE] = "1FRTW14W84KC76110";
 char incorrect_vin_len[INCORRECT_SIZE] = "1FTRW4W";
-char incorrect_vin_lower[INCORRECT_SIZE] = "1ftrW4W";
+char incorrect_vin_lower[INCORRECT_SIZE_2] = "1ftrW4WHH";
 
 // NOTE: The valid function is short for Validation, and not the direct meaning of being valid invalid VINs can be passed into the "valid()" function.
 
@@ -26,13 +28,16 @@ void origin(char vin_input_array[]);
 int main()
 {
 
+	std::cout << std::endl;
+	std::cout << "VIN Should return as VALID ------" << std::endl;
 	valid(correct_vin);
 	std::cout << std::endl;
 
+	std::cout << "VIN Should return incorrect, due to incorrect length ------" << std::endl;
 	valid(incorrect_vin_len);
-
 	std::cout << std::endl;
-	std::cout << "VIN Should return incorrect, due to lowercase letter" << std::endl;
+
+	std::cout << "VIN Should return incorrect, due to incorrect casing and length-------" << std::endl;
 	valid(incorrect_vin_lower);
 
 	return 0;
@@ -54,12 +59,12 @@ void origin(char vin_input_array[])
 	}
 
 	// TODO: Add origin codes to the remainder of the arrays.
-	if (vin_input_array[0] == origin_asia_looped)
+	if (vin_input_array[0] == 'J' || vin_input_array[0] == 'K' || vin_input_array[0] == 'L' || vin_input_array[0] == 'M' || vin_input_array[0] == 'N' || vin_input_array[0] == 'O' || vin_input_array[0] == 'P' || vin_input_array[0] == 'Q' || vin_input_array[0] == 'R')
 	{
 		std::cout << "COUNTRY OF ORIGIN: Asia" << std::endl;
 	}
 
-	if (vin_input_array[0] == origin_europe_looped)
+	if (vin_input_array[0] == 'S' || vin_input_array[0] == 'T' || vin_input_array[0] == 'U' || vin_input_array[0] == 'V'|| vin_input_array[0] == 'W' || vin_input_array[0] == 'X' || vin_input_array[0] == 'Y')
 	{
 		std::cout << "COUNTRY OF ORIGIN: Eurpoe" << std::endl;
 	}
@@ -69,12 +74,12 @@ void origin(char vin_input_array[])
 		std::cout << "COUNTRY OF ORIGIN: North America" << std::endl;
 	}
 
-	if (vin_input_array[0] == origin_oceania_looped)
+	if (vin_input_array[0] == '6' || vin_input_array[0] == '7')
 	{
 		std::cout << "COUNTRY OF ORIGIN: Oceania" << std::endl;
 	}
 
-	if (vin_input_array[0] == origin_south_america_looped)
+	if (vin_input_array[0] == '8' || vin_input_array[0] == '9' || vin_input_array[0] == '0')
 	{
 		std::cout << "COUNTRY OF ORIGIN: South America" << std::endl;
 	}
@@ -98,11 +103,15 @@ void year(char vin_input_array[])
 	}
 
 	// TODO: Add year codes to the remainder of the arrays.
-	if (vin_input_array[0] == 'P' || vin_input_array[0] == 'Q' || vin_input_array[0] == 'R' || vin_input_array[0] == 'S' || vin_input_array[0] == 'T' || vin_input_array[0] == 'U' || vin_input_array[0] == 'V' || vin_input_array[0] == 'W' || vin_input_array[0] == 'X' || vin_input_array[0] == 'Y')
+	if (vin_input_array[0] == '1' || vin_input_array[0] == '2' || vin_input_array[0] == '3' || vin_input_array[0] == '4' || vin_input_array[0] == '5' || vin_input_array[0] == '6' || vin_input_array[0] == '7' || vin_input_array[0] == '8' || vin_input_array[0] == '9')
 	{
 		std::cout << "YEAR: 2001 to 2009" << std::endl;
 	}
 
+	if (vin_input_array[0] == 'A' || vin_input_array[0] == 'B' || vin_input_array[0] == 'C' || vin_input_array[0] == 'D' || vin_input_array[0] == 'E' || vin_input_array[0] == 'F' || vin_input_array[0] == 'G' || vin_input_array[0] == 'H' || vin_input_array[0] == 'I' || vin_input_array[0] == 'J' || vin_input_array[0] == 'K' || vin_input_array[0] == 'L' || vin_input_array[0] == 'M')
+	{
+		std::cout << "YEAR: 2010 to 2022" << std::endl;
+	}
 
 }
 
@@ -125,8 +134,6 @@ bool valid(char vin_input_array[]) {
 	
 	case_of_input = isupper(vin_input_array[2]);
 
-	std::cout << "Length of Input: " << length_of_input << std::endl;
-	std::cout << "Case Return Code: " << case_of_input << std::endl;
 
 	if (length_of_input < 16 || case_of_input == 0 || vin_input_array_looped == illegal_characters_looped)
 	{
@@ -168,7 +175,7 @@ bool valid(char vin_input_array[]) {
 		std::cout << "Anyalized VIN Number: " << vin_input_array << std::endl;
 		std::cout << "VALID ! -- This VIN Number is VALID!" << std::endl;
 		origin(correct_vin);
-		std::cout << "YEAR OF MANUFACTURING: " << std::endl;
+		year(correct_vin);
 		std::cout << std::endl;
 	}
 
