@@ -56,7 +56,7 @@ void displayCustomer(Customer customerArray[])
 		std::cout << "Customer's Company: " << customerArray[i].company_name;
 		std::cout << "Customer's Email Address: " << customerArray[i].customer_email_address;
 
-		// so on and so on...
+		std::cout << "Customer's Phone Number: " << customerArray[i].customer_phone_number << std::endl;
 
 	}
 }
@@ -100,8 +100,6 @@ void menu()
 	std::cout << "Enter a Menu Option: ";
 	std::cin >> keyboard_input;
 
-
-	// TODO: ADD USER INPUT VALIDATION - CODE HAD ISSUE WITH LOOP REPEARTING.
 
 	while (keyboard_input < 8)
 	{

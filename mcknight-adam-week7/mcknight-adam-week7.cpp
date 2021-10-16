@@ -1,17 +1,27 @@
 ﻿/*
-	Adam McKnight
-	CIS 1202 500
-	October 10th, 2021
+Adam McKnight
+CIS 1202 500
+October 10th, 2021
 
-	See screenshots in the root folder for expected output of program.
+
+
+I'm turning this in eventhrough, nothing was really done.
+I've tried to figure out this problem for the last week, and I'm struggling with it.
+
+I've tried to create a Deck sturct that takes in Card struct, that doens't work as expected. I've tried to complete the problem with the method signatures in the spec sheet, and I'm unable to come to a solution. The suits can'd be stored into a new card variable (on its own) or in an for loop. Even manually typing out each card pair of HEARTS of TWO, etc... I'll get an error. 
+
+I've researched and tried to use different methods to complete the problem, even at that cannot figure it out. I also didn't want to go too far off the spec sheet. I was able to get something to work when using classes but that wouldn't be solving the original question / problem.
+
+Thanks, - am 10/9/'21
+
 */
 
 #include "mcknight-adam-week7.h"
 
 
 // Structs & Enums:
-enum suits {HEARTS, DIAMONDS, SPADES, CLUBS};
-enum ranks {TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE};
+enum suits { HEARTS, DIAMONDS, SPADES, CLUBS };
+enum ranks { TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING, ACE };
 
 struct cards
 {
@@ -37,14 +47,17 @@ std::string winner(cards, cards);
 // Functions:
 int main()
 {
-
 	return 0;
 }
 
 void createDeck(cards[]) // FUNCTION IS TAKING IN AN ARRAY OF NAME CARDS.
 {
 
+	cards cards;
+	
 
+
+	
 	// create a deck of cards
 	// loop through the suits enum
 	// loop through the ranks enum
@@ -88,4 +101,3 @@ std::string winner(cards, cards)
 	// if so, return WINNING. Run logical check to see if ranks are the same,
 	// if so, return a TIE. Otherwise, show LOSSING.
 }
-
