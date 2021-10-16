@@ -33,7 +33,6 @@ Customer customers[CUSTOMER_ARR_SIZE];
 
 void menu();
 void newCustomer(Customer customerArray[]);
-//Customer addCustomer();
 void displayCustomer(Customer customerArray[]);
 
 /*
