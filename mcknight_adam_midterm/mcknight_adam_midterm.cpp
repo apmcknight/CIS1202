@@ -51,13 +51,15 @@ void displayCustomer(Customer customerArray[])
 {
 	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
 	{
-		std::cout << "Customer Name: " << customerArray[i].customer_first_name << customerArray[i].customer_last_name;
+		std::cout << "Customer's ID: " << customerArray[i].customer_id;
 
-		std::cout << "Customer's Company: " << customerArray[i].company_name;
-		std::cout << "Customer's Email Address: " << customerArray[i].customer_email_address;
+		std::cout << "Customer Name: " << customerArray[i].customer_first_name << " " << customerArray[i].customer_last_name << std::endl;
+
+		std::cout << "Customer's Company: " << customerArray[i].company_name << std::endl;
+
+		std::cout << "Customer's Email Address: " << customerArray[i].customer_email_address << std::endl;
 
 		std::cout << "Customer's Phone Number: " << customerArray[i].customer_phone_number << std::endl;
-
 	}
 }
 
@@ -69,6 +71,8 @@ void newCustomer(Customer customerArray[])
 
 	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
 	{
+		customerArray[i].customer_id = i+1;
+
 		std::cout << "What's the Customers First Name: ";
 		std::cin >> customerArray[i].customer_first_name;
 
