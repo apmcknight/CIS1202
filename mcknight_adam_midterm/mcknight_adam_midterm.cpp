@@ -33,6 +33,10 @@ Customer customers[CUSTOMER_ARR_SIZE];
 
 void menu();
 void newCustomer(Customer customerArray[]);
+<<<<<<< HEAD
+=======
+//Customer addCustomer();
+>>>>>>> 1645eac31335e4449d852a02d7ed447bab07c9f4
 void displayCustomer(Customer customerArray[]);
 
 /*
@@ -50,6 +54,7 @@ void displayCustomer(Customer customerArray[])
 {
 	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
 	{
+<<<<<<< HEAD
 		std::cout << "Customer's ID: " << customerArray[i].customer_id;
 
 		std::cout << "Customer Name: " << customerArray[i].customer_first_name << " " << customerArray[i].customer_last_name << std::endl;
@@ -59,12 +64,22 @@ void displayCustomer(Customer customerArray[])
 		std::cout << "Customer's Email Address: " << customerArray[i].customer_email_address << std::endl;
 
 		std::cout << "Customer's Phone Number: " << customerArray[i].customer_phone_number << std::endl;
+=======
+		std::cout << "Customer Name: " << customerArray[i].customer_first_name << customerArray[i].customer_last_name;
+
+		std::cout << "Customer's Company: " << customerArray[i].company_name;
+		std::cout << "Customer's Email Address: " << customerArray[i].customer_email_address;
+
+		std::cout << "Customer's Phone Number: " << customerArray[i].customer_phone_number << std::endl;
+
+>>>>>>> 1645eac31335e4449d852a02d7ed447bab07c9f4
 	}
 }
 
 void newCustomer(Customer customerArray[])
 {
 	std::cout << "---- ADD A NEW CUSTOMER ----" << std::endl;
+<<<<<<< HEAD
 
 	std::cout << "When finished press q and hit return to go to the main menu..." << std::endl;
 
@@ -72,6 +87,13 @@ void newCustomer(Customer customerArray[])
 	{
 		customerArray[i].customer_id = i+1;
 
+=======
+
+	std::cout << "When finished press q and hit return to go to the main menu..." << std::endl;
+
+	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
+	{
+>>>>>>> 1645eac31335e4449d852a02d7ed447bab07c9f4
 		std::cout << "What's the Customers First Name: ";
 		std::cin >> customerArray[i].customer_first_name;
 
