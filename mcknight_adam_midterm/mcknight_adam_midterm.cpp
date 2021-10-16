@@ -15,7 +15,7 @@
 struct Customer
 {
 	int customer_id = NULL;
-	bool is_customer_active; // RETURN 0 FOR NO AND 1 FOR YES.
+	bool is_customer_active = false; // RETURN 0 FOR NO AND 1 FOR YES.
 	std::string customer_first_name;
 	std::string customer_last_name;
 	std::string customer_email_address;
@@ -25,15 +25,16 @@ struct Customer
 
 
 // Globals (limited use)
-const int CUSTOMER_ARR_SIZE = 300;
+const int CUSTOMER_ARR_SIZE = 1;
 Customer customers[CUSTOMER_ARR_SIZE];
 
 
 // Prototypes
 
 void menu();
-Customer addCustomer();
-Customer displayCustomer();
+void newCustomer(Customer customerArray[]);
+//Customer addCustomer();
+void displayCustomer(Customer customerArray[]);
 
 /*
 
@@ -46,76 +47,50 @@ runReport();
 
 // Funcitons & Methods
 
-Customer displayCustomer()
+void displayCustomer(Customer customerArray[])
 {
-	Customer displayCustomer;
+	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
+	{
+		std::cout << "Customer Name: " << customerArray[i].customer_first_name << customerArray[i].customer_last_name;
+
+		std::cout << "Customer's Company: " << customerArray[i].company_name;
+		std::cout << "Customer's Email Address: " << customerArray[i].customer_email_address;
+
+		// so on and so on...
+
+	}
+}
+
+void newCustomer(Customer customerArray[])
+{
+	std::cout << "---- ADD A NEW CUSTOMER ----" << std::endl;
+
+	std::cout << "When finished press q and hit return to go to the main menu..." << std::endl;
 
 	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
 	{
-		std::cout << customers[i];
-	}
+		std::cout << "What's the Customers First Name: ";
+		std::cin >> customerArray[i].customer_first_name;
 
-	std::cout << std::endl;
-	std::cout << "TEST RETURN -----" << std::endl;
-	std::cout << displayCustomer.customer_first_name << std::endl << displayCustomer.customer_email_address << displayCustomer.is_customer_active << std::endl;
+		std::cout << "What's the Customers First Name: ";
+		std::cin >> customerArray[i].customer_last_name;
+
+		std::cout << "What's the Customers Company Name: ";
+		std::cin >> customerArray[i].company_name;
+	}
 }
 
-Customer addCustomer()
-{
-	Customer newCustomer;
-
-	std::string customer_active_input;
-
-	std::cout << " ---------- ADD A NEW CUSTOMER ---------- " << std::endl;
-
-	// CUSTOMER ID NEEDS TO BE THE POSITION OF THE CUSTOMER IN THE ARRAY. FOR EXAMPLE ARRAY POSITION 0, WOULD BE CUSTOMER NUMBER 0 AND SO ON.
-
-	std::cout << "Is the Customer Active? Enter Yes or No: ";
-	std::cin >> customer_active_input;
-	
-	if (customer_active_input == "YES" || customer_active_input == "Yes" || customer_active_input == "yes" || customer_active_input == "y" || customer_active_input == "Y")
-	{
-		newCustomer.is_customer_active = true;
-
-	} if (customer_active_input == "NO" || customer_active_input == "No" || customer_active_input == "no" || customer_active_input == "n" || customer_active_input == "N")
-	{
-		newCustomer.is_customer_active = false;
-	}
-	else {
-		newCustomer.is_customer_active = false;
-	}
-
- 
-
-	std::cout << "Customer's First Name: ";
-	std::cin >> newCustomer.customer_first_name;
-	
-	std::cout << std::endl;
-	std::cout << "Customer's Last Name: ";
-	std::cin >> newCustomer.customer_last_name;
-
-	std::cout << std::endl;
-	std::cout << "Customer's E-Mail Address: ";
-	std::cin >> newCustomer.customer_email_address;
-
-	std::cout << "Customer's Phone Number: ";
-	std::cin >> newCustomer.customer_phone_number;
-
-	std::cout << "Company Name of Customer: ";
-	std::cin >> newCustomer.company_name;
-
-	return newCustomer;
-}
 
 void menu()
 {
 	int keyboard_input;
+
 	const int OPTIONS = 7;
 	std::string menu_options[OPTIONS] = { "Create New Customer", "Update a Customer", "Delete A Customer", "Display All Customers", "Display a Customer", "Run A Report", "Exit" };
 
 	std::cout << "MAIN MENU" << std::endl;
 
-	
+
 	for (int i = 0; i < OPTIONS; i++)
 	{
 		std::cout << i + 1 << ". ";
@@ -125,19 +100,21 @@ void menu()
 	std::cout << "Enter a Menu Option: ";
 	std::cin >> keyboard_input;
 
-	if (keyboard_input > OPTIONS)
-	{
-		std::cout << std::endl;
-		std::cout << "INVALID OPTION: Please enter a valid option between 1-7" << std::endl;
-		menu();
-	}
 
-	switch (keyboard_input)
+	// TODO: ADD USER INPUT VALIDATION - CODE HAD ISSUE WITH LOOP REPEARTING.
+
+	while (keyboard_input < 8)
 	{
+
+		switch (keyboard_input)
+		{
 		case 1:
-			addCustomer();
+			newCustomer(customers);
+			menu();
 			break;
 		case 2:
+			displayCustomer(customers);
+			menu();
 			break;
 		case 3:
 			break;
@@ -149,9 +126,10 @@ void menu()
 			break;
 		case 7:
 			exit(1);
-
-
+		}
 	}
+
+	
 
 }
 
