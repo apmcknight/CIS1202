@@ -2,7 +2,7 @@
 
 	Adam McKnight
 	CIS 1120 501
-	October, , 2021
+	October, 17, 2021
 	MIDTERM PROJECT
 
 	See the screenshots in the root for expected output of program.
@@ -46,7 +46,7 @@ void customerGrid(Customer customerArray[]);
 
 void customerGrid(Customer customerArray[])
 {
-	// 2D Array Grid of Customers
+	// 2D Array Grid of first 6 Customers
 
 	int const ROW = 6;
 	int const COL = 12;
@@ -59,9 +59,14 @@ void customerGrid(Customer customerArray[])
 		{"E-Mail Address:     ", customerArray[0].customer_email_address, "            ",customerArray[1].customer_email_address,"            ", customerArray[2].customer_email_address,"            ", customerArray[3].customer_email_address,"            ", customerArray[4].customer_email_address},
 		{"Company Name:       ", customerArray[0].company_name, "            ",customerArray[1].company_name,"            ", customerArray[2].company_name, "            ",customerArray[3].company_name, "            ",customerArray[4].company_name}
 
-		//{"Row 1: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"},
-		//{"Row 2: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"},
+		// FOLLOWS THIS FORMAT:
+		//{"Row 1: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
+		//{"Row 2: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
 		//{"Row 3: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
+		//{"Row 4: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
+		//{"Row 5: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
+		//{"Row 6: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
+
 	};
 
 	for (int i = 0; i < ROW; i++)
@@ -119,7 +124,32 @@ void sortCustomer(Customer customerArray[])
 {
 	// Sorts through the Customer Array
 
+	bool isSwapped;
+	Customer temp;
 
+	std::cout << " ---- SHOWING SORTED CUSTOMERS ---- " << std::endl;
+ 
+	do 
+	{
+		isSwapped = false;
+
+		for(int i = 1; i < CUSTOMER_ARR_SIZE; i++)
+		{
+			if (customerArray[i].customer_first_name < customerArray[i - 1].customer_first_name)
+			{
+				temp = customerArray[i-1];
+				customerArray[i - 1] = customerArray[i];
+				customerArray[i] = temp;
+				isSwapped = true;
+			}
+
+			
+		}
+
+		// Calls the display function and prints the Customer to the screen
+		displayCustomer(customers);
+
+	} while (isSwapped);
 
 }
 
@@ -158,9 +188,6 @@ void displayCustomer(Customer customerArray[])
 {
 	
 	// Function shows the first 5 customers in the array:
-
-	std::cout << "---- SHOWING FIRST 5 CUSTOMERS ----" << std::endl << std::endl;
-
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -270,6 +297,7 @@ void menu()
 			menu();
 			break;
 		case 3:
+			std::cout << "---- SHOWING FIRST 5 CUSTOMERS ----" << std::endl << std::endl;
 			displayCustomer(customers);
 			menu();
 			break;
