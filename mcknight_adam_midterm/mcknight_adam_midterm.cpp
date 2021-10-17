@@ -23,7 +23,7 @@ struct Customer
 	std::string customer_first_name;
 	std::string customer_last_name;
 	std::string customer_email_address;
-	std::string customer_phone_number; // TODO: NO SPACES OF SYMBOLS SHOULD BE USED, CHECK WITH VALIDATION.
+	std::string customer_phone_number;
 	std::string company_name;
 };
 
@@ -37,23 +37,54 @@ Customer customers[CUSTOMER_ARR_SIZE];
 void menu();
 void newCustomer(Customer customerArray[]);
 void displayCustomer(Customer customerArray[]);
+void updateCustomer(Customer customerArray[]);
 
 /*
-updateCustomer(); // USE CUSTOMER ID AS A WAY TO GRAB THE SPECIFIC CUSTOMER
 deleteCustomer(); // DELETE A CUSTOMER RECORD BASED ON THEIR ID IN THE ARRAY
 displaySingleCustomer(); // DISPLAY A SINGE CUSTOMER BASED ON THEIR ID IN THE ARRAY
-displayCustomer() // ** finished **
 runReport(); // RUN A REPORT SHOWING HOW MANY CUSTOMERS ARE LISTED IN IT
 */
 
 // Funcitons & Methods
+
+void updateCustomer(Customer customerArray[])
+{
+	int customer_to_update_id;
+	std::string user_input;
+	std::cout << std::endl << std::endl;
+	std::cout << "---- UPDATE AN EXSITING CUSTOMER ----" << std::endl << std::endl;
+
+	std::cout << "NOTE: You can only update one custoemr at a time. After a customer is updated \nyou can update another after you've been returned to the main menu!" << std::endl << std::endl;
+	
+	std::cout << "NOTE: To find the ID of the customer you'd like to update,\nDisplay all customers at the main menu. Their ID is shown." << std::endl;
+	std::cout << std::endl << "ID of customer to Update: ";
+	std::cin >> customer_to_update_id;
+
+	std::cout << "What's the Customers First Name: ";
+	std::cin >> customerArray[customer_to_update_id].customer_first_name;
+
+	std::cout << "What's the Customers Last Name: ";
+	std::cin >> customerArray[customer_to_update_id].customer_last_name;
+
+	std::cout << "What's the Customers Phone Number: ";
+	std::cin >> customerArray[customer_to_update_id].customer_phone_number;
+
+	std::cout << "What's the Customers E-Mail Address: ";
+	std::cin >> customerArray[customer_to_update_id].customer_email_address;
+
+	std::cout << "What's the Customers Company Name: ";
+	std::cin >> customerArray[customer_to_update_id].company_name;	
+}
 
 void displayCustomer(Customer customerArray[])
 {
 	// TODO: does the array contain any values? if so how many are there to display?
 	// cannot have the console print 100 values of empty.
 
-	for (int i = 0; i < 2; i++)
+	std::cout << "---- SHOWING FIRST 5 CUSTOMERS ----" << std::endl << std::endl;
+
+
+	for (int i = 0; i < 5; i++)
 	{
 		std::cout << std::endl;
 		std::cout << "Customer's ID: " << customerArray[i].customer_id << std::endl;
@@ -85,17 +116,26 @@ void newCustomer(Customer customerArray[])
 		std::cout << "What's the Customers First Name: ";
 		std::cin >> customerArray[i].customer_first_name;
 
-		std::cout << "What's the Customers First Name: ";
+		std::cout << "What's the Customers Last Name: ";
 		std::cin >> customerArray[i].customer_last_name;
+
+		std::cout << "What's the Customers Phone Number: ";
+		std::cin >> customerArray[i].customer_phone_number;
+
+	
+
+		std::cout << "What's the Customers E-Mail Address: ";
+		std::cin >> customerArray[i].customer_email_address;
 
 		std::cout << "What's the Customers Company Name: ";
 		std::cin >> customerArray[i].company_name;
 
+		std::cout << std::endl;
 		std::cout << "Are you finished entering Customers? y/N: ";
 		std::cin >> user_input;
 		std::cout << std::endl;
-		
-		if (user_input == "y" || user_input == "yes" || user_input == "YES")
+
+		if (user_input == "y" || user_input == "Y" || user_input == "yes" || user_input == "YES")
 		{
 			break;
 		}
@@ -135,16 +175,24 @@ void menu()
 			menu();
 			break;
 		case 2:
-			displayCustomer(customers);
+			updateCustomer(customers);
 			menu();
 			break;
 		case 3:
+			// deleteCustomer(customers);
+			menu();
 			break;
 		case 4:
+			displayCustomer(customers);
+			menu();
 			break;
 		case 5:
+			// displaySingleCustomer(customers);
+			menu();
 			break;
 		case 6:
+			// runReport(customers);
+			menu();
 			break;
 		case 7:
 			exit(1);
