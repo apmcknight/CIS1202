@@ -40,9 +40,42 @@ void displayCustomer(Customer customerArray[]);
 void sortCustomer(Customer customerArray[]);
 void displaySingleCustomer(Customer customerArray[]);
 void displayArrayAddress(Customer customerArray[]);
-
+void customerGrid(Customer customerArray[]);
 
 // Funcitons & Methods
+
+void customerGrid(Customer customerArray[])
+{
+	// 2D Array Grid of Customers
+
+	int const ROW = 6;
+	int const COL = 12;
+
+	std::string customerGrid[ROW][COL] = {
+		{"INFO -------------- ", "CUSTOMER 1      ", "CUSTOMER 2      ", "CUSTOMER 3      ", "CUSTOMER 4      ", "CUSTOMER 5      "},
+		{"First Name:         ", customerArray[0].customer_first_name, "            " , customerArray[1].customer_first_name, "            ", customerArray[2].customer_first_name,"            ", customerArray[3].customer_first_name,"            ", customerArray[4].customer_first_name},
+		{"Last Name:          ", customerArray[0].customer_last_name,"            ", customerArray[1].customer_last_name,"            ", customerArray[2].customer_last_name,"            ", customerArray[3].customer_last_name,"            ", customerArray[4].customer_last_name},
+		{"Phone Number:       ", customerArray[0].customer_phone_number,"            ", customerArray[1].customer_phone_number, "            ",customerArray[2].customer_phone_number,"            ", customerArray[3].customer_phone_number,"            ", customerArray[4].customer_phone_number},
+		{"E-Mail Address:     ", customerArray[0].customer_email_address, "            ",customerArray[1].customer_email_address,"            ", customerArray[2].customer_email_address,"            ", customerArray[3].customer_email_address,"            ", customerArray[4].customer_email_address},
+		{"Company Name:       ", customerArray[0].company_name, "            ",customerArray[1].company_name,"            ", customerArray[2].company_name, "            ",customerArray[3].company_name, "            ",customerArray[4].company_name}
+
+		//{"Row 1: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"},
+		//{"Row 2: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"},
+		//{"Row 3: ", "Item 1", "Item 2", "Item 3", "Item 4", "Item 5"}
+	};
+
+	for (int i = 0; i < ROW; i++)
+	{
+		std::cout << std::endl;
+		for (int j = 0; j < COL; j++)
+		{
+			std::cout << " " << customerGrid[i][j] << " ";
+		}
+		std::cout << std::endl;
+	}
+
+	std::cout << std::endl;
+}
 
 void displayArrayAddress(Customer customerArray[])
 {
@@ -62,7 +95,7 @@ void displaySingleCustomer(Customer customerArray[])
 	std::cout << "NOTE: You can only show one custoemr at a time." << std::endl << std::endl;
 
 	std::cout << "NOTE: To find the ID of the customer you'd like to update,\nDisplay all customers at the main menu. Their ID is shown." << std::endl;
-	std::cout << std::endl << "ID of customer to Update: ";
+	std::cout << std::endl << "ID of customer to Show: ";
 	std::cin >> customer_id;
 
 	std::cout << std::endl;
@@ -85,6 +118,9 @@ void displaySingleCustomer(Customer customerArray[])
 void sortCustomer(Customer customerArray[])
 {
 	// Sorts through the Customer Array
+
+
+
 }
 
 
@@ -201,9 +237,9 @@ void menu()
 {
 	int keyboard_input;
 
-	// Creates an array of menu options based on const size of 6:
-	const int OPTIONS = 7;
-	std::string menu_options[OPTIONS] = { "Create New Customer", "Update a Customer", "Display Customers", "Display Customer by ID", "Display Customers Sorted", "Show DB / Array Memory Location", "Exit"};
+	// Creates an array of menu options based on const size of X:
+	const int OPTIONS = 8;
+	std::string menu_options[OPTIONS] = { "Create New Customer", "Update a Customer", "Display Customers", "Display Customer by ID", "Display Customers Sorted", "Show DB / Array Memory Location", "Display Customer Grid", "Exit"};
 
 	std::cout << "MAIN MENU" << std::endl;
 
@@ -220,7 +256,7 @@ void menu()
 	std::cin >> keyboard_input;
 
 	// Loops over the switch, until exit is provided or an invalid command is entered:
-	while (keyboard_input < 8)
+	while (keyboard_input < 9)
 	{
 
 		switch (keyboard_input)
@@ -250,11 +286,15 @@ void menu()
 			menu();
 			break;
 		case 7:
+			customerGrid(customers);
+			menu();
+			break;
+		case 8:
 			exit(1);
 		}
 	}
 
-	if (keyboard_input > 6)
+	if (keyboard_input > 9)
 	{
 		std::cout << "Please enter a valid menu option." << std::endl;
 		std::cout << std::endl;
