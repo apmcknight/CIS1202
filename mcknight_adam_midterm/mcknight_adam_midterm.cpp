@@ -19,7 +19,6 @@
 struct Customer
 {
 	int customer_id = NULL;
-	bool is_customer_active = false; // RETURN 0 FOR NO AND 1 FOR YES.
 	std::string customer_first_name;
 	std::string customer_last_name;
 	std::string customer_email_address;
@@ -36,16 +35,59 @@ Customer customers[CUSTOMER_ARR_SIZE];
 // Prototypes
 void menu();
 void newCustomer(Customer customerArray[]);
-void displayCustomer(Customer customerArray[]);
 void updateCustomer(Customer customerArray[]);
+void displayCustomer(Customer customerArray[]);
+void sortCustomer(Customer customerArray[]);
+void displaySingleCustomer(Customer customerArray[]);
+void displayArrayAddress(Customer customerArray[]);
 
-/*
-deleteCustomer(); // DELETE A CUSTOMER RECORD BASED ON THEIR ID IN THE ARRAY
-displaySingleCustomer(); // DISPLAY A SINGE CUSTOMER BASED ON THEIR ID IN THE ARRAY
-runReport(); // RUN A REPORT SHOWING HOW MANY CUSTOMERS ARE LISTED IN IT
-*/
 
 // Funcitons & Methods
+
+void displayArrayAddress(Customer customerArray[])
+{
+	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
+	{
+		std::cout << &customerArray[i] << std::endl;
+	}
+}
+
+void displaySingleCustomer(Customer customerArray[])
+{
+	int customer_id;
+	std::string user_input;
+	std::cout << std::endl << std::endl;
+	std::cout << "---- FIND CUSTOMER FROM ID ----" << std::endl << std::endl;
+
+	std::cout << "NOTE: You can only show one custoemr at a time." << std::endl << std::endl;
+
+	std::cout << "NOTE: To find the ID of the customer you'd like to update,\nDisplay all customers at the main menu. Their ID is shown." << std::endl;
+	std::cout << std::endl << "ID of customer to Update: ";
+	std::cin >> customer_id;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Customer First Name: " << customerArray[customer_id].customer_first_name << std::endl;
+
+	std::cout << "Customer Last Name: " << customerArray[customer_id].customer_last_name << std::endl;
+
+	std::cout << "Customer Phone Number: " << customerArray[customer_id].customer_phone_number << std::endl;
+
+	std::cout << "Customer E-Mail Address: " << customerArray[customer_id].customer_email_address << std::endl;
+
+	std::cout << "Customer's Company: " << customerArray[customer_id].company_name << std::endl;
+
+	std::cout << std::endl;
+	std::cout << std::endl;
+}
+
+void sortCustomer(Customer customerArray[])
+{
+	// Sorts through the Customer Array
+}
+
+
 
 void updateCustomer(Customer customerArray[])
 {
@@ -78,8 +120,8 @@ void updateCustomer(Customer customerArray[])
 
 void displayCustomer(Customer customerArray[])
 {
-	// TODO: does the array contain any values? if so how many are there to display?
-	// cannot have the console print 100 values of empty.
+	
+	// Function shows the first 5 customers in the array:
 
 	std::cout << "---- SHOWING FIRST 5 CUSTOMERS ----" << std::endl << std::endl;
 
@@ -97,6 +139,16 @@ void displayCustomer(Customer customerArray[])
 
 		std::cout << "Customer's Phone Number: " << customerArray[i].customer_phone_number << std::endl;
 	
+
+		// Convert String First Name into a char:
+
+		std::string str = customerArray[i].customer_first_name;
+
+		char* stc = const_cast<char*>(str.c_str());
+
+		// Prints out how many letters are in the first name:
+		std::cout << "The Customer's First Name has " << strlen(stc) << " letters in it." << std::endl;
+
 		std::cout << std::endl;
 	}
 }
@@ -111,8 +163,10 @@ void newCustomer(Customer customerArray[])
 
 	for (int i = 0; i < CUSTOMER_ARR_SIZE; i++)
 	{
+		// Defines the Customer's ID, adds 1 to the array ID for easier human counting:
 		customerArray[i].customer_id = i + 1;
 
+		// Get's the Customer's Information from the user:
 		std::cout << "What's the Customers First Name: ";
 		std::cin >> customerArray[i].customer_first_name;
 
@@ -121,8 +175,6 @@ void newCustomer(Customer customerArray[])
 
 		std::cout << "What's the Customers Phone Number: ";
 		std::cin >> customerArray[i].customer_phone_number;
-
-	
 
 		std::cout << "What's the Customers E-Mail Address: ";
 		std::cin >> customerArray[i].customer_email_address;
@@ -135,6 +187,7 @@ void newCustomer(Customer customerArray[])
 		std::cin >> user_input;
 		std::cout << std::endl;
 
+		// Program will return to menu if these are given as input:
 		if (user_input == "y" || user_input == "Y" || user_input == "yes" || user_input == "YES")
 		{
 			break;
@@ -148,23 +201,25 @@ void menu()
 {
 	int keyboard_input;
 
+	// Creates an array of menu options based on const size of 6:
 	const int OPTIONS = 7;
-	std::string menu_options[OPTIONS] = { "Create New Customer", "Update a Customer", "Delete A Customer", "Display All Customers", "Display a Customer", "Run A Report", "Exit" };
+	std::string menu_options[OPTIONS] = { "Create New Customer", "Update a Customer", "Display Customers", "Display Customer by ID", "Display Customers Sorted", "Show DB / Array Memory Location", "Exit"};
 
 	std::cout << "MAIN MENU" << std::endl;
 
-
+	// Displays the menu options array to the user:
 	for (int i = 0; i < OPTIONS; i++)
 	{
 		std::cout << i + 1 << ". ";
 		std::cout << menu_options[i] << std::endl;
 	}
 
+	// Gets the menu input to pass into the switch bellow:
 	std::cout << std::endl;
 	std::cout << "Enter a Menu Option: ";
 	std::cin >> keyboard_input;
 
-
+	// Loops over the switch, until exit is provided or an invalid command is entered:
 	while (keyboard_input < 8)
 	{
 
@@ -179,19 +234,19 @@ void menu()
 			menu();
 			break;
 		case 3:
-			// deleteCustomer(customers);
-			menu();
-			break;
-		case 4:
 			displayCustomer(customers);
 			menu();
 			break;
+		case 4:
+			displaySingleCustomer(customers);
+			menu();
+			break;
 		case 5:
-			// displaySingleCustomer(customers);
+			sortCustomer(customers);
 			menu();
 			break;
 		case 6:
-			// runReport(customers);
+			displayArrayAddress(customers);
 			menu();
 			break;
 		case 7:
@@ -199,7 +254,12 @@ void menu()
 		}
 	}
 
-
+	if (keyboard_input > 6)
+	{
+		std::cout << "Please enter a valid menu option." << std::endl;
+		std::cout << std::endl;
+		menu();
+	}
 
 }
 

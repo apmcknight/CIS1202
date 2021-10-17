@@ -4,5 +4,8 @@
 #pragma once
 
 #include <iostream>
+#include <algorithm>
+#include <cstring> 
+
 
 // TODO: Reference additional headers your program requires here.
