@@ -1,18 +1,19 @@
-﻿// Adam McKnight
+// Adam McKnight
 // November 7th 2021
 // CIS1202
 // See screenshots in the projects' root for expected output
 
-// Header Files
-#include "mcknight_adam_week11.h" // main header file, declares io.
-#include "Publication.h" // declaires publication class
+#include "Publication.h";
 
-void getPublicationInfo(Publication &)
+// This should be placed in the "mcknight_adam_week11.cpp", correct? 
+// What needs to be defined in this file? Am I overlooking something
+
+void getPublicationInfo(Publication&)
 {
 
 	std::cout << "--- ADD A NEW PUBLICATION ---" << std::endl;
 
-	std::cout << "Publication Title: "; 
+	std::cout << "Publication Title: ";
 	std::cin >> publicationType;
 
 	std::cout << "Publisher: ";
@@ -20,20 +21,8 @@ void getPublicationInfo(Publication &)
 	std::cout << "Price:";
 
 	std::cout << "Year: ";
-	
+
 	std::cout << "Publication Type ";
 
 	// storePublication(); member function
-}
-
-void getPublication()
-{
-
-}
-
-int main()
-{
-	// getPublicationInfo();
-	
-	return 0;
 }
