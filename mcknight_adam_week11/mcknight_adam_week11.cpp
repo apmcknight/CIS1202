@@ -5,35 +5,38 @@
 
 // Header Files
 #include "mcknight_adam_week11.h" // main header file, declares io.
-#include "Publication.h" // declaires publication class
+#include "Publication.h" // declares publication class
 
-void getPublicationInfo(Publication &)
+
+void getPublicationInfo(Publication&)
 {
 
-	std::cout << "--- ADD A NEW PUBLICATION ---" << std::endl;
+	Publication publication;
+	std::string title = publication.itemTitle;
+	std::string publisher = publication.itemPublisher;
+	double price = publication.itemPrice;
+	int year = publication.itemYear;
+	PublicationType type = publication.itemType;
 
-	std::cout << "Publication Title: "; 
-	std::cin >> publicationType;
+	std::cout << "Publication Title: ";
+	std::cin >> title;
 
 	std::cout << "Publisher: ";
+	std::cin >> publisher;
 
 	std::cout << "Price:";
+	std::cin >> price;
 
 	std::cout << "Year: ";
-	
-	std::cout << "Publication Type ";
-
-	// storePublication(); member function
+	std::cin >> year;
 }
 
-void getPublication()
-{
 
-}
+
 
 int main()
 {
-	// getPublicationInfo();
-	
+	Publication getPublicationInfo();
+
 	return 0;
 }
