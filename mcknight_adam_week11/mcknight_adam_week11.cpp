@@ -36,7 +36,7 @@ void getPublicationInfo(Publication&)
 
 int main()
 {
-	Publication getPublicationInfo();
+	getPublicationInfo(Publication);
 
 	return 0;
 }

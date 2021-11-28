@@ -9,7 +9,7 @@
 
 
 
-void Publication::storePublication(std::string itemTitle, std::string itemPublisher, double itemPirce, int itemYear, PublicationType itemType, int itemStock)
+Publication::storePublication(std::string itemTitle, std::string itemPublisher, double itemPirce, int itemYear, PublicationType itemType, int itemStock)
 {
 	Publication publication;
 
@@ -27,6 +27,8 @@ void Publication::storePublication(std::string itemTitle, std::string itemPublis
 
 	PublicationType type = publication.itemType;
 	Publication::itemType = type;
+
+	return Publication;
 }
 
 void Publication::displayInfo()

@@ -30,8 +30,8 @@ class Vehicle {
 		{
 			// Shows the info
 			cout << endl << "Vehicle Information ---" << endl;
-			cout << "The manufactuer for the truck is: " << m << endl;
-			cout << "Year Built: " << y;
+			cout << "The manufactuer for the vehicle is: " << m << endl;
+			cout << "Year Built: " << y << endl;
 			cout << endl << endl;
 		}
 

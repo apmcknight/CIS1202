@@ -21,8 +21,8 @@ public:
 	{
 		// Shows the info
 		cout << endl << "Car Information ---" << endl;
-		cout << "The manufactuer for the truck is: " << m << endl;
-		cout << "Year Built: " << y;
+		cout << "The manufactuer for the car is: " << m << endl;
+		cout << "Year Built: " << y << endl;
 		cout << "Number of Doors: " << d << endl;
 		cout << endl << endl;
 	}

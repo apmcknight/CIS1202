@@ -5,8 +5,9 @@
 
 #pragma once
 #include <iostream>
+#include <stddef.h>
 
-enum PublicationType
+enum class PublicationType
 {
 	BOOK,
 	MAGAZINE,
@@ -16,15 +17,15 @@ enum PublicationType
 };
 
 
-class Publication {
+class Publication 
+{
 public:
 	std::string itemTitle;
 	std::string itemPublisher;
-	double itemPrice;
-	int itemYear;
-	PublicationType itemType;
+	double itemPrice = 0;
+	int itemYear = 0;
+	PublicationType itemType = { book };
 	int itemStock = 0;
-
 	void storePublication(std::string itemTitle, std::string itemPublisher, double itemPirce, int itemYear, PublicationType itemType, int itemStock);
 
 	void displayInfo();

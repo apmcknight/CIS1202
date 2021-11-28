@@ -6,6 +6,7 @@
 #include "mcknight_adam_week14.h"
 #include "Vehicle.h"
 #include "Car.h"
+#include "Truck.h"
 
 using namespace std;
 
@@ -14,19 +15,19 @@ int main()
 	string manufactuer;
 	int year;
 	int doors;
+	int towing;
 
-	Vehicle truck;
+	// Bike
+	Vehicle bike;
 
-	// TRUCK: Get the Manufactuer
-	cout << "Please enter the maker of the truck: ";
+	cout << "Please enter the maker of the Vehicle: ";
 	cin >> manufactuer;
-	truck.setManufactuer(manufactuer);
+	bike.setManufactuer(manufactuer);
 
-	// Truck: Get the Year
-	cout << "Please enter the year of the truck: ";
+	cout << "Please enter the year of the Vehicle: ";
 	cin >> year;
-	truck.setYear(year);
-	truck.displayInfo(manufactuer, year);
+	bike.setYear(year);
+	bike.displayInfo(manufactuer, year);
 
 	// Car
 	Car car;
@@ -39,8 +40,26 @@ int main()
 	cout << "Enter the doors of the car: ";
 	cin >> doors;
 	car.setDoors(doors);
-	
 	car.displayInfo(manufactuer, year, doors);
+
+	// Semi Truck
+	Truck semi;
+
+	cout << "Enter the manufactuer of the truck: ";
+	cin >> manufactuer;
+
+	semi.setManufactuer(manufactuer);
+	
+	cout << "Enter the year of the truck: ";
+	cin >> year;
+	
+	semi.setYear(year);
+	
+	cout << "Enter the towing capacity of the truck in LBS: ";
+	cin >> towing;
+
+	semi.setTowing(towing);
+	semi.displayInfo(manufactuer, year, towing);
 
 	return 0;
 }
