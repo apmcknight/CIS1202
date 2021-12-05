@@ -7,20 +7,30 @@
 
 using namespace std;
 
+/*
 char character(char start, int offset);
+
 
 char character(char start, int offset)
 {
 	char first_character;
 	start = first_character;
-	if (first_character != "A" )
-	{
-
-	}
+	
 }
+*/
+
+// ASSIGNMENT PART B:
+template <typename T>
+void Half(T number)
+{
+	cout << number / 2 << endl;
+}
+
 
 int main()
 {
-	character("A", 1);
-	return 0;
+	Half(7.0);
+	Half(5.0f);
+	Half(3);
+	Half(5); 
 }

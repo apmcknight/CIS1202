@@ -6,6 +6,6 @@ cmake_minimum_required (VERSION 3.8)
 project ("mcknight_adam_week15")
 
 # Add source to this project's executable.
-add_executable (mcknight_adam_week15 "mcknight_adam_week15.cpp" "mcknight_adam_week15.h" "mcknight_adam_week15_b.cpp")
+add_executable (mcknight_adam_week15 "mcknight_adam_week15.cpp" "mcknight_adam_week15.h" )
 
 # TODO: Add tests and install targets if needed.
