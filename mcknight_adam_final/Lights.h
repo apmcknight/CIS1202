@@ -24,7 +24,13 @@ public:
 	string getLightManufactuer(string m) const;
 	int setLightSN(int sn) const;
 	int getLightSN(int sn) const;
-	void showDetails();
+
+	void Light::showDetails(int sn, int s, string m)
+	{
+		cout << endl << "Light Manufactuer: " << m << endl;
+		cout << "Serial Number: " << sn << endl;
+		cout << "Status: " << s << endl;
+	}
 };
 
 

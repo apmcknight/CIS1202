@@ -49,25 +49,3 @@ int Light::getLightSN(int sn) const
 {
 	return sn;
 }
-
-void Light::showDetails()
-{
-	cout << "Light Details & Status ----" << endl;
-	cout << "Light Manufactuer: " << m << endl;
-	cout << "Light SN:" << sn << endl;
-
-	int status = s;
-
-	if (status == 0)
-	{
-		cout << "Light Status: LIGHT IS OFF" << "/ Return Code of: " << status;
-	}
-	if (status == 1)
-	{
-		cout << "Light Status: LIGHT IS ON" << "/ Return Code of: " << status;
-	}
-	if (status != 0 || status != 1)
-	{
-		cout << endl << "Light Status could not be retrieved. Please try again later.";
-	}
-}
